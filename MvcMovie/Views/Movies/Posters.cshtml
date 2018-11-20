@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MvcMovie.Models.MoviePoster>
+
+@{
+    ViewData["Title"] = "Posters";
+}
+
+<h2>Posters</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FilleName)
+            </th>
+            <th>
+                Movie Poster
+            </th>
+        
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MovieID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilleName)
+            </td>
+            <td>
+                <img src="@item.URL" />
+            </td>
+         
+            <td>             
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
